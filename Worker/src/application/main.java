@@ -53,7 +53,7 @@ public class main {
         Date dateContract = sdf.parse(sc.next());
         dayAndMonthAndYear(dateContract);
         double totalIncome =  worker.income(dayAndMonthAndYear(dateContract));
-        System.out.println("Total income: " + totalIncome);
+        System.out.println("Name: "+ worker.getName()+" - Total income: " + totalIncome);
 
         sc.close();
     }
