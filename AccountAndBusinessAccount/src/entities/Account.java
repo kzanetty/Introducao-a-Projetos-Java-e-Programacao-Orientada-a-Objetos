@@ -41,15 +41,15 @@ public class Account {
     }
 
     public void withdraw(double amount){
-        balance -= amount;
+        balance -= amount + 5;
     }
 
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("Number: " + number + "\n");
-        sb.append("Holder: " + holder + "\n");
-        sb.append("Balance: " + balance);
+        sb.append("Number: " + number);
+        sb.append(" - Holder: " + holder);
+        sb.append(" - Balance: " + balance);
         return sb.toString();
     }
 }

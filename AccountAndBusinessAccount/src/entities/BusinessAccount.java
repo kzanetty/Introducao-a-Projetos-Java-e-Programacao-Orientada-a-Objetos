@@ -1,6 +1,6 @@
 package entities;
 
-public class BusinessAccount extends Account{
+public final class BusinessAccount extends Account{
 
     private Double loanLimite;
 
@@ -24,13 +24,13 @@ public class BusinessAccount extends Account{
     }
 
     @Override
-    public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("Number: " + getNumber() + "\n");
-        sb.append("Holder: " + getHolder() + "\n");
-        sb.append("Balance: " + getBalance() + "\n");
-        sb.append("loan limit: " + loanLimite);
-        return sb.toString();
+    public void withdraw(double amount) {
+        super.withdraw(amount);
+        balance -= 3;
     }
 
+    @Override
+    public String toString(){
+        return super.toString() + " - loan limit: " + loanLimite;
+    }
 }

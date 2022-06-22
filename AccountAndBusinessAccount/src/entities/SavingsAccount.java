@@ -1,12 +1,14 @@
 package entities;
 
-public class SavingsAccount extends Account{
+public final class SavingsAccount extends Account{
 
     private Double interestRate;
+    private Integer time;
 
     public SavingsAccount(Integer number, String holder, Double balance, Double interestRate, Integer time) {
         super(number, holder, balance);
         this.interestRate = interestRate;
+        this.time = time;
         updatedBalance(time);
     }
 
@@ -24,12 +26,12 @@ public class SavingsAccount extends Account{
     }
 
     @Override
+    public void withdraw(double amount) {
+        balance -= amount;
+    }
+
+    @Override
     public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("Number: " + getNumber() + "\n");
-        sb.append("Holder: " + getHolder() + "\n");
-        sb.append("Balance: " + getBalance() + "\n");
-        sb.append("Interest rate: " + interestRate);
-        return sb.toString();
+        return super.toString();
     }
 }

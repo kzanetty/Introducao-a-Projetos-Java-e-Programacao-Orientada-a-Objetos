@@ -11,46 +11,54 @@ public class Main {
     public static void main(String[] args){
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
-        Account account = null;
 
-        System.out.println("Basic information.");
+        Account acc1, acc2, acc3;
+
+        int number, time;
+        String holder;
+        double balance, loanLimit, InterestRate;
+
+        System.out.println("Basic account.");
         System.out.print("Number: ");
-        int number = sc.nextInt();
+        number = sc.nextInt();
         sc.nextLine();
         System.out.print("Holder: ");
-        var holder = sc.nextLine();
+        holder = sc.nextLine();
         System.out.print("Balance: ");
-        double balance = sc.nextDouble();
+        balance = sc.nextDouble();
+        acc1 = new Account(number,holder,balance);
+        System.out.println(acc1);
 
-        System.out.println("Basic account, business account or savings account? (A, B or S)");
-        char choose =sc.next().charAt(0);
 
-        switch (choose){
-            case ('A'):
-                System.out.println("You choose a basic account.");
-                account = new Account(number, holder, balance);
-                break;
-            case ('B'):
-                System.out.println("You choose a business account.");
-                System.out.println("Loan limit: ");
-                double loanLimit = sc.nextDouble();
-                account = new BusinessAccount(number,holder,balance,loanLimit);
-                break;
-            case ('S'):
-                System.out.println("You choose a Saving Account.");
-                System.out.println("Interest rate: ");
-                double interestRate = sc.nextDouble();
-                System.out.println("Time: ");
-                int time = sc.nextInt();
-                account = new SavingsAccount(number,holder,balance,interestRate, time);
-                break;
-            default:
-                account = new Account();
-                System.out.println("Value invalid. Pending fill!!");
-        }
+        System.out.println("Business account.");
+        System.out.print("Number: ");
+        number = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Holder: ");
+        holder = sc.nextLine();
+        System.out.print("Balance: ");
+        balance = sc.nextDouble();
+        System.out.print("Loan limit: ");
+        loanLimit = sc.nextDouble();
+        acc2 = new BusinessAccount(number, holder, balance, loanLimit);
+        System.out.println(acc2);
 
-        System.out.println(account);
 
+        System.out.println("Savings account.");
+        System.out.print("Number: ");
+        number = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Holder: ");
+        holder = sc.nextLine();
+        System.out.print("Balance: ");
+        balance = sc.nextDouble();
+        System.out.print("Interest rate: ");
+        InterestRate = sc.nextDouble();
+        System.out.print("Time: ");
+        time = sc.nextInt();
+        acc3 = new SavingsAccount(number, holder, balance, InterestRate, time);
+
+        System.out.println(acc3);
         sc.close();
     }
 }
