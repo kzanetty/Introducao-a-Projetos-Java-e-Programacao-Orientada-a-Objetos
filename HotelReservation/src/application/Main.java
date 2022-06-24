@@ -1,6 +1,7 @@
 package application;
 
 import entities.Reservation;
+import entities.util.Checks;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,49 +21,39 @@ public class Main {
         System.out.println("Checkout: ");
         Date checkout = sdf.parse(sc.next());
 
+        Checks.jumpLine();
+
         Reservation res = null;
-        if (check(checkin, checkout)) {
+        if (Checks.check(checkin, checkout)) {
             res = new Reservation(roomNumber, checkin, checkout);
             System.out.println(res);
         } else {
-            System.out.println("Dates invalid.");
+            Checks.msgInconsistentData();
             while (res == null) {
                 System.out.println("== try again ==");
                 System.out.println("Checkin: ");
                 checkin = sdf.parse(sc.next());
                 System.out.println("Checkout: ");
                 checkout = sdf.parse(sc.next());
-                if (check(checkin, checkout)) {
+                if (Checks.check(checkin, checkout)) {
                     res = new Reservation(roomNumber, checkin, checkout);
                     System.out.println(res);
                 }
             }
         }
 
-        System.out.println("-----------------------------");
+        Checks.jumpLine();
         System.out.println("=== Update reservation ===");
         System.out.println("New checkin: ");
         checkin = sdf.parse(sc.next());
         System.out.println("new checkout: ");
         checkout = sdf.parse(sc.next());
-        if (check(checkin, checkout)) {
-            res.setCheckin(checkin);
-            res.setCheckout(checkout);
-            System.out.println(res);
-        } else {
-            System.out.println("Update reservation fail.");
-        }
+
+        res.updateDates(checkin, checkout);
+        System.out.println(res);
 
         sc.close();
     }
 
-
-    public static boolean check(Date checkin, Date checkout) {
-        if (checkin.before(new Date()) || checkout.before(checkin)) {
-            return false;
-        } else {
-            return true;
-        }
-    }
 
 }

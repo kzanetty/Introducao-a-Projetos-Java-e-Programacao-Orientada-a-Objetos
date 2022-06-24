@@ -1,5 +1,8 @@
 package entities;
 
+import com.sun.security.jgss.GSSUtil;
+import entities.util.Checks;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -50,6 +53,16 @@ public class Reservation {
         long time = calout.getTimeInMillis() - calin.getTimeInMillis();
         int days = (int)Math.ceil(time/1000/60/60/24);
         return days;
+    }
+
+    public void updateDates(Date checkin, Date checkout) {
+        if(Checks.check(checkin,checkout)){
+            this.checkin = checkin;
+            this.checkout = checkout;
+            System.out.println("Successful update.");
+        } else {
+            System.out.println("Update fails.");
+        }
     }
 
     @Override
