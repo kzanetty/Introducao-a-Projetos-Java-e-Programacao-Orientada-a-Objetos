@@ -1,7 +1,7 @@
-package entities;
+package model.entities;
 
-import com.sun.security.jgss.GSSUtil;
-import entities.util.Checks;
+import model.exceptions.DomainException;
+import model.util.Checks;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -61,14 +61,13 @@ public class Reservation {
         return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
     }
 
-    public void updateDates(Date checkin, Date checkout) {
-        if(Checks.check(checkin,checkout)){
-            this.checkin = checkin;
-            this.checkout = checkout;
-            System.out.println("Successful update.");
-        } else {
-            System.out.println("Update fails.");
+    public void updateDates(Date checkin, Date checkout) throws DomainException {
+        if(!Checks.check(checkin,checkout)){
+            throw new DomainException("Dates must be future and consistent.");
         }
+        System.out.println("Successful update.");
+        this.checkin = checkin;
+        this.checkout = checkout;
     }
 
     @Override

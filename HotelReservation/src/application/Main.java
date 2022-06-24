@@ -1,7 +1,8 @@
 package application;
 
-import entities.Reservation;
-import entities.util.Checks;
+import model.entities.Reservation;
+import model.exceptions.DomainException;
+import model.util.Checks;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,8 +29,8 @@ public class Main {
             res = new Reservation(roomNumber, checkin, checkout);
             System.out.println(res);
         } else {
-            Checks.msgInconsistentData();
             while (res == null) {
+                Checks.msgInconsistentData();
                 System.out.println("== try again ==");
                 System.out.println("Checkin: ");
                 checkin = sdf.parse(sc.next());
@@ -42,15 +43,19 @@ public class Main {
             }
         }
 
-        Checks.jumpLine();
-        System.out.println("=== Update reservation ===");
-        System.out.println("New checkin: ");
-        checkin = sdf.parse(sc.next());
-        System.out.println("new checkout: ");
-        checkout = sdf.parse(sc.next());
+        try {
+            Checks.jumpLine();
+            System.out.println("=== Update reservation ===");
+            System.out.println("New checkin: ");
+            checkin = sdf.parse(sc.next());
+            System.out.println("new checkout: ");
+            checkout = sdf.parse(sc.next());
 
-        res.updateDates(checkin, checkout);
-        System.out.println(res);
+            res.updateDates(checkin, checkout);
+            System.out.println(res);
+        } catch (DomainException e){
+            System.out.println("Dates fails: " + e.getMessage());
+        }
 
         sc.close();
     }
