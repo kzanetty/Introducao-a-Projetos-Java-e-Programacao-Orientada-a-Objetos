@@ -6,10 +6,11 @@ import entities.util.Checks;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class Reservation {
 
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     private Integer roomNumber;
     private Date checkin;
@@ -53,6 +54,11 @@ public class Reservation {
         long time = calout.getTimeInMillis() - calin.getTimeInMillis();
         int days = (int)Math.ceil(time/1000/60/60/24);
         return days;
+    }
+
+    public long otherDuration(){
+        long diff = checkout.getTime() - checkin.getTime();
+        return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
     }
 
     public void updateDates(Date checkin, Date checkout) {
