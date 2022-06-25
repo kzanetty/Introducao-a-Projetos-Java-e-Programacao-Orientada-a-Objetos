@@ -1,0 +1,3 @@
+tv,250.0,10
+celular,500.0,10
+computador,1000.0,3
