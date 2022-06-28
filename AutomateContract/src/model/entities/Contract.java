@@ -1,7 +1,6 @@
 package model.entities;
 
 import java.util.Date;
-import java.util.List;
 
 public class Contract {
 
@@ -52,12 +51,12 @@ public class Contract {
         this.numberInstallment = numberInstallment;
     }
 
-    public double installmentValue(){
+    public double installmentValue() {
         return contractValue / numberInstallment;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Number contract: " + numberContract + " - Value contract: $" + contractValue
                 + " - Number installments: " + numberInstallment + "\n";
     }
