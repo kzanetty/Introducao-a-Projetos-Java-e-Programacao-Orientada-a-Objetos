@@ -1,0 +1,4 @@
+tv,2500.0
+ps5,3900.99
+computador,5000.23
+celular,2300
