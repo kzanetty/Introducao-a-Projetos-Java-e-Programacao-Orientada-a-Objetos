@@ -1,0 +1,8 @@
+Henrique,1,120
+vinicius,2,100
+Henrique,1,130
+vinicius,2,100
+Henrique,1,200
+vinicius,2,100
+Henrique,1,50
+vinicius,2,100
