@@ -1,0 +1,10 @@
+Henrique,henrique@gmail.com,1200.0
+Vinicius,vinicius@gmail.com,3300.12
+Julia,julia@gmail.com,4100.89
+Leandro,leandro@gmail.com,5056.56
+Leonara,leonara@gmail.com,1400.21
+Henrique,henrique@gmail.com,1200.0
+Vinicius,vinicius@gmail.com,3300.12
+Julia,julia@gmail.com,4100.89
+Leandro,leandro@gmail.com,5056.56
+Leonara,leonara@gmail.com,1400.21
