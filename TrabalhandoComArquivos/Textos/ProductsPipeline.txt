@@ -1,0 +1,10 @@
+casa,350.50
+phone,1400.23
+leptop,980.0
+carro,80.30
+Tv,900.00
+Mouse,50.00
+Tablet,350.50
+HD Case,80.90
+Computer,850.00
+Monitor,290.00
