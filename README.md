@@ -9,7 +9,7 @@ Os exercícios de java contido nessa pasta abordam os seguintes temas:
     - if-else
     - switch-case
     - Condição ternaria
-  - Estruturas
+  - Estruturas repetitivas
     - while
     - for
     - do-while
